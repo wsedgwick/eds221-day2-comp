@@ -7,4 +7,167 @@ execute:
   message: false
 ---
 
-## 
+## Vectors
+
+```{r}
+library(tidyverse)
+
+# create a vector
+dogs <- c("teddy", "khora", "waffle", "bango", "tallie")
+
+# Check the class
+class(dogs)
+```
+
+```{r}
+
+cats <- c("creamsicle wolf", 14.2, 3L)
+cats_2 <- list("buta", 4.5, TRUE)
+```
+
+```{r}
+
+years <- c(20L, 40L, 16L, 2L)
+class(years)
+
+typeof(years)
+# get more specific numeric subtypes of data
+```
+
+```{r}
+# Want to do a conditional check
+# is. <<< asks questions "is this THIS?"
+# as. <<< gives a command "make this THIS"
+
+is.numeric(years)
+is.character(cats)
+```
+
+```{r}
+dog_food <- c(teddy = "purina", khora = "alpo", waffle = "fancy feast")
+
+dog_food[1:3]
+dog_food["khora"]
+
+```
+
+### Day 2 Part 2
+
+```{r}
+
+cars <- c("blue", "orange", "white")
+cars[1]
+i <- seq(1:2)
+cars[i]
+
+# Vectors are mutable
+
+cars[3] <- "yellow"
+cars
+```
+
+### Matrices
+
+```{r}
+
+fish_size <- matrix(c(12, 14, 16, 18),
+                    ncol = 2, nrow = 2,
+                    byrow = FALSE)
+
+class(fish_size)
+typeof(fish_size)
+
+fish_size[2, 1]
+
+
+# Create a matrix with different types of data
+
+fish_type <- matrix(c(seq(1:9)),
+                    ncol = 3, nrow = 3,
+                    byrow = FALSE)
+fish_type
+
+class(fish_type)
+typeof(fish_type)
+
+
+
+
+```
+
+### Lists
+
+Reminder: A list combines vectors that can be of different length and type
+
+```{r}
+urchins <- list("blue", c(seq(1:3)), c("a cat", "a dog"), 5L)
+
+class(urchins[[4]])
+
+urchins[4]
+
+```
+
+### Make a named list
+
+
+```{r}
+
+
+tacos <- list(topping = c("onion", "cilantro", "guacamole"),
+              filling = c("beans", "meant", "veggies"),
+              price = c(6.75, 8.25, 9.5))
+
+
+
+
+
+# Indexing list elements by name
+
+tacos$topping[2]
+# returns cilantro
+
+parse_number("$1,333")
+
+
+```
+
+```{r}
+my_list <- list(cats = c(1,2,3), dogs = c(10,11,12))
+```
+
+The second value of dogs is `q my_list$dogs[2]`.
+
+### Data frames 3 ways!
+
+```{r}
+
+topping <- c("onion", "cilantro", "guacamole")
+filling <- c("bean", "meant", "veggies")
+price <- c(6.75, 8.25, 9.50)
+
+df_ex_1 <- data.frame(topping, filling, price)
+class(df_ex_1)
+
+
+df_ex_2 <- data.frame(topping = c("sour cream", "salsa", "cheese"),
+                      filling = c("checken", "cheese", "cabbage"),
+                      price = c(12.50, 13.75, 15.00))
+
+df_ex_3 <- tribble(
+  ~topping, ~filling, ~price,
+  "avocado", "steak", 13.25,
+  "bell peps", "fish", 10.40,
+  "salsa", "veggies", 9.75
+)
+
+# The 2 below are the same, the first calls by name, the second calls by [row,col]
+df_ex_3$price[3]
+df_ex_3[3,3]
+
+
+```
+
+
+
+
