@@ -1,0 +1,10 @@
+---
+title: "Day 2 Computational Session"
+format: html
+editor: visual
+execute: 
+  warning: false
+  message: false
+---
+
+## 
